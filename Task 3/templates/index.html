@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            padding: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 30%;
+            border-radius: 40px;
+        }
+        .form-group label {
+            font-weight: bold;
+            
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 class="text-center">Iris Flower Prediction</h2>
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="sepal_length">Sepal Length:</label>
+                    <input type="text" class="form-control" id="sepal_length" name="sepal_length" required>
+                </div>
+                <div class="form-group">
+                    <label for="sepal_width">Sepal Width:</label>
+                    <input type="text" class="form-control" id="sepal_width" name="sepal_width" required>
+                </div>
+                <div class="form-group">
+                    <label for="petal_length">Petal Length:</label>
+                    <input type="text" class="form-control" id="petal_length" name="petal_length" required>
+                </div>
+                <div class="form-group">
+                    <label for="petal_width">Petal Width:</label>
+                    <input type="text" class="form-control" id="petal_width" name="petal_width" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Predict</button>
+            </form>
+            {% if prediction_text %}
+                <h3 class="text-center mt-4">{{ prediction_text }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
